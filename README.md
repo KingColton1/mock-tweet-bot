@@ -12,3 +12,6 @@ Unlike other fake tweet bots, this bot uses image manipulation to create custom 
 5. Rename `.env.example` to `.env` and fill out necessary information in `.env` in order to run this bot.
 6. Run `node index.js`
 7. Have fun "tweeting" in your Discord!
+
+Demo picture:
+![image](https://github.com/user-attachments/assets/2e3f0010-5f8c-4f1c-b47f-e81f55012969)
