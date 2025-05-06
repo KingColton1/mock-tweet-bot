@@ -12,14 +12,32 @@ async function wrapText(context, text, x, y, maxWidth, lineHeight) {
         const metrics = context.measureText(testLine);
         const testWidth = metrics.width;
         if (testWidth > maxWidth && i > 0) {
-            context.fillText(line, x, y);
+            drawStyledText(context, line, x, y);
             line = words[i] + ' ';
             y += lineHeight;
         } else {
             line = testLine;
         }
     }
-    context.fillText(line, x, y);
+    drawStyledText(context, line, x, y);
+}
+
+function drawStyledText(context, text, x, y) {
+    const words = text.split(' ');
+    let currentX = x;
+
+    for (const word of words) {
+        if (word.startsWith('#')) {
+            // Style hashtags in blue
+            context.fillStyle = '#1DA1F2'; // Twitter blue
+        } else {
+            // Default text color
+            context.fillStyle = '#000';
+        }
+
+        context.fillText(word + ' ', currentX, y);
+        currentX += context.measureText(word + ' ').width; // Move to the next word position
+    }
 }
 
 async function createTweet(interaction, content) {
