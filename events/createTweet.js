@@ -3,7 +3,7 @@ const canvas = require('@napi-rs/canvas');
 const { request } = require('undici');
 const { channelID } = require('../libs/config.js');
 
-function wrapText(context, text, x, y, maxWidth, lineHeight) {
+async function wrapText(context, text, x, y, maxWidth, lineHeight) {
     const words = text.split(' ');
     let line = '';
 
