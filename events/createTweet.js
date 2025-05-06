@@ -91,7 +91,10 @@ async function createTweet(interaction, content) {
     context.drawImage(avatar, avatarX, avatarY, avatarSize, avatarSize);
 
     const attachment = new AttachmentBuilder(await canvasImg.encode('png'), { name: 'profile-image.png' });
-    await tweetChannel.send({ files: [attachment] });
+    await tweetChannel.send({
+        content: `-# **${interaction.member.displayName}** (@${interaction.user.username})`,
+        files: [attachment]
+    });
 }
 
 module.exports = {
