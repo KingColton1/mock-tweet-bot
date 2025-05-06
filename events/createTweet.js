@@ -29,14 +29,14 @@ function drawStyledText(context, text, x, y) {
     for (const word of words) {
         if (word.startsWith('#')) {
             // Style hashtags in blue
-            context.fillStyle = '#1DA1F2'; // Twitter blue
+            context.fillStyle = '#1DA1F2';
         } else {
             // Default text color
             context.fillStyle = '#000';
         }
 
         context.fillText(word + ' ', currentX, y);
-        currentX += context.measureText(word + ' ').width; // Move to the next word position
+        currentX += context.measureText(word + ' ').width;
     }
 }
 
